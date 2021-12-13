@@ -15,6 +15,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    day04.puz1("day04test.txt")
+    print(day04.puz2("day04test.txt"))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

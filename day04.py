@@ -10,17 +10,45 @@ def puz1(file):
                     if item == int(ball):
                         boards[b][l][i] = "X"
                         if testBoard(board):
-                            scoreBoard(board, int(Ball))
+                            return scoreBoard(board, int(ball))
 
     for i, board in enumerate(boards):
         print("----", i, "----")
         for line in board:
             print(line)
 
+def puz2(file):
+    balls, boards = buildGame(file)
+    print(balls)
+
+    for ballNum, ball in enumerate(balls):
+        print()
+        print("--Ball--", ball, "------------")
+        for b, board in enumerate(boards):
+            for l, line in enumerate(board):
+                for i, item in enumerate(line):
+                    if item == int(ball):
+                        boards[b][l][i] = "X"
+                        if testBoard(board):
+                            if len(boards)>1:
+                                boards.remove(board)
+                                
+                            else:
+                                return scoreBoard(board, ball)
+
+
+
+
+        for i, board in enumerate(boards):
+            print("--board--", i, "----")
+            for line in board:
+                print(line)
+
+
 def testBoard(board):
     for y, line in enumerate(board):
         if line == ["X", "X", "X", "X", "X"]:
-            print("Found Horizontal")
+            print("Found Horizontal", y)
             return True
     for x, item in enumerate(board[0]):
         if item == "X":
@@ -30,12 +58,19 @@ def testBoard(board):
                     win = False
                     break
             if win:
-                print("Found Vertical")
+                print("Found Vertical", x)
                 return True
     return False
 
 
-
+def scoreBoard(board, ball):
+    sum = 0
+    for line in board:
+        for i in line:
+            if i != "X":
+                sum += int(i)
+    print(sum, ball)
+    return (sum*int(ball))
 
 
 def buildGame(file):
