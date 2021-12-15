@@ -24,7 +24,7 @@ def puz2(file):
     for ballNum, ball in enumerate(balls):
         print()
         print("--Ball--", ball, "------------")
-        for b, board in enumerate(boards):
+        for b, board in reversed(list(enumerate(boards))):
             for l, line in enumerate(board):
                 for i, item in enumerate(line):
                     if item == int(ball):
@@ -32,7 +32,6 @@ def puz2(file):
                         if testBoard(board):
                             if len(boards)>1:
                                 boards.remove(board)
-                                
                             else:
                                 return scoreBoard(board, ball)
 

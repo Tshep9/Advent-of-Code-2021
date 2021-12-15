@@ -6,6 +6,7 @@ import day01
 import day02
 import day03
 import day04
+import day05
 
 
 def print_hi(name):
@@ -15,6 +16,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(day04.puz2("day04test.txt"))
+    print(day05.puz1("day05test.txt"))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
